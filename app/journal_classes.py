@@ -2,12 +2,12 @@ from dataclasses import dataclass
 
 
 class JournalEntry:
-    def __init__(self, jid, text, date, author, keywords, location):
+    def __init__(self, jid, text, date_written, author, text_keyword, location):
         self.id = jid
         self.text = text
-        self.date = date
+        self.date_written = date_written
         self.author = author
-        self.keywords = keywords
+        self.text_keyword = text_keyword
         self.location = location
 
 
