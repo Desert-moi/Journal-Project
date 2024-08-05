@@ -10,7 +10,7 @@ class MysqlRepository(Repository):
             'user': 'root',
             'password': 'AZpassword',
             'host': 'localhost',  # db  OR to run LOCALLY, this should be localhost
-            'port': '32006',  # 3306 OR to run LOCALLY, this should be 32001
+            'port': '3306',  # 3306 OR to run LOCALLY, this should be 32001
             'database': 'journal_entries'
         }
 
