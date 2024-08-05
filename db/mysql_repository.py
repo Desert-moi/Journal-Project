@@ -36,4 +36,3 @@ class MysqlRepository(Repository):
         self.cursor.execute(sql)
         entries = self.cursor.fetchall()
         return [self.mapper(entry) for entry in entries]
-

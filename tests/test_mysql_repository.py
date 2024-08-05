@@ -17,6 +17,7 @@ def test_database():
     assert len(entries) > 0
 
     # Example checks to verify specific information
-    assert any(entry.author == 'Janey Jackay' for entry in entries)
-    assert any(entry.location == 'Chicago, USA' for entry in entries)
-
+    assert any(entry.get_author() == 'Janey Jackay' for entry in entries)
+    assert any(entry.get_location() == 'Chicago, USA' for entry in entries)
+    assert any('yoga' in entry.get_text() for entry in entries)
+    assert any('project proposal' in entry.get_text_keyword() for entry in entries)

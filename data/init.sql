@@ -3,15 +3,11 @@ CREATE DATABASE IF NOT EXISTS Journals
        CHARACTER SET utf8
        COLLATE utf8_unicode_ci;
 
-
 -- Uses the database
 USE Journals;
 
 -- Drop existing tables if they exist to avoid duplicates (for testing purposes)
 DROP TABLE IF EXISTS Journal_Entries;
-
-#ALTER DATABASE journal_entries
-
 
 -- Creates the journal_entries table
 CREATE TABLE IF NOT EXISTS Journal_Entries (
@@ -21,7 +17,6 @@ CREATE TABLE IF NOT EXISTS Journal_Entries (
     text_keyword VARCHAR(300),
     location VARCHAR (30)
 );
-
 
 -- sample journal entries
 -- Insert sample data into the journal_entries table
