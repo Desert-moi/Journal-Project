@@ -11,8 +11,9 @@ def test_services():
     target_author = "Janey Jackay"
     recall = s.recall_author(target_author)
 
-    # this should return as a list of items
+    # this should return as a list of items and there should be only two entries.
     assert isinstance(recall, list)
+    assert len(recall) == 2
 
     # Checks if 'Janey Jackay' is found in the returned statements
     assert any(entry.get_author() == 'Janey Jackay' for entry in recall)
