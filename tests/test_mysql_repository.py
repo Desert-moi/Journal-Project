@@ -3,23 +3,20 @@ from db.mysql_repository import *
 
 def test_database():
     repo = MysqlRepository()
+
+    # Check that is a repository
     assert isinstance(repo, Repository)
 
-    entry = {
-        'jid': 1,
-        'person_id': 42,
-        'text': 'Sample journal text',
-        'date_written': '2024-08-01',
-        'author': 'Arthur Naim',
-        'text_keyword': 'Sample',
-        'location': 'Nowhere, AZ'
-    }
-    journal_entry = repo.mapper(entry)
+    # Loads repository
+    entries = repo.load_journals()
 
-    assert journal_entry.jid == 1
-    assert journal_entry.person_id == 42
-    assert journal_entry.text == 'Sample journal text'
-    assert journal_entry.date_written == '2024-08-01'
-    assert journal_entry.author == 'Arthur Naim'
-    assert journal_entry.text_keyword == 'Sample'
-    assert journal_entry.location == 'Nowhere, AZ'
+    # Check that entries is a list
+    assert isinstance(entries, list)
+
+    # Checks that we have some entries
+    assert len(entries) > 0
+
+    # Example checks to verify specific information
+    assert any(entry.author == 'Janey Jackay' for entry in entries)
+    assert any(entry.location == 'Chicago, USA' for entry in entries)
+

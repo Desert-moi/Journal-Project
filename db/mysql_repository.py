@@ -11,7 +11,7 @@ class MysqlRepository(Repository):
             'password': 'AZpassword',
             'host': 'localhost',  # db  OR to run LOCALLY, this should be localhost
             'port': '3306',  # 3306 OR to run LOCALLY, this should be 32001
-            'database': 'journal_entries'
+            'database': 'Journals'
         }
 
         self.connection = mysql.connector.connect(**config)
@@ -21,19 +21,19 @@ class MysqlRepository(Repository):
         self.cursor.close()
         self.connection.close()
 
-    def mapper(self, entry: dict) -> JournalEntry:
+    @staticmethod
+    def mapper(entry):
         return JournalEntry(
-            jid=entry['jid'],
-            person_id=entry['person_id'],
-            text=entry['text'],
-            date_written=entry['date_written'],
-            author=entry['author'],
-            text_keyword=entry['text_keyword'],
-            location=entry['location']
+            text=entry[0],
+            date_written=entry[1],
+            author=entry[2],
+            text_keyword=entry[3],
+            location=entry[4],
         )
 
     def load_journals(self) -> list[JournalEntry]:
-        sql = 'SELECT * FROM journal'
+        sql = 'SELECT * FROM Journal_Entries'
         self.cursor.execute(sql)
         entries = self.cursor.fetchall()
         return [self.mapper(entry) for entry in entries]
+
