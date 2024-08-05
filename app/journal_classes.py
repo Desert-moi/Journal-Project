@@ -1,9 +1,11 @@
 from dataclasses import dataclass
 
 
+@dataclass
 class JournalEntry:
-    def __init__(self, jid, text, date_written, author, text_keyword, location):
-        self.id = jid
+    def __init__(self, jid, person_id, text, date_written, author, text_keyword, location):
+        self.jid = jid
+        self.person_id = person_id
         self.text = text
         self.date_written = date_written
         self.author = author
@@ -18,21 +20,3 @@ class Journal:
     def add_entry(self, entry):
         self.journal_entries.append(entry)
 
-
-@dataclass(frozen=True)
-class Token:
-    term: str
-
-
-class TermDocumentIndex:
-    def __init__(self):
-        self.vocabulary = set()
-        self.postings = {}
-
-    def add_to_vocabulary(self, token):
-        self.vocabulary.add(token)
-
-    def add_posting(self, token, entry_id):
-        if token not in self.postings:
-            self.postings[token] = []
-        self.postings[token].append(entry_id)

@@ -1,6 +1,5 @@
 import abc
 from app.journal_classes import *
-from app.journal_classes import JournalEntry
 
 
 class Repository(metaclass=abc.ABCMeta):
