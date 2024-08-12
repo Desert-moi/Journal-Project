@@ -12,16 +12,20 @@ cors = CORS(app, resources={r"/get_data": {"origins": 'http://localhost:3000'}})
 services = Services()
 
 
-@app.route("/get_data", methods=["GET"])  # Add URL here, after "/" (e.g. "/get_data")
+@app.route("/get_data/<string:author>", methods=["GET"])
 @cross_origin(origin='http://localhost:3000', headers=['Content-Type', 'Authorization'])
-def get_data():
-    author = request.args.get('author')
-    if not author:
-        return jsonify({"error": "No author provided"}), 400
+def get_data(author):
 
     data = services.recall_author(author)
-    return jsonify({"result": data})
+
+    if not data:
+        return jsonify({"error": "No journals found for the given author"}), 404
+
+    # Convert JournalEntry objects to dictionaries for JSON response
+    result = [entry.__dict__ for entry in data]
+
+    return jsonify({"result": result})
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0", port=5000)
