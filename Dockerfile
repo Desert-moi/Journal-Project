@@ -1,6 +1,6 @@
 FROM python:3.9
 
-COPY . .
+COPY venv .
 
 RUN pip install -U pip
 RUN pip install -r requirements.txt

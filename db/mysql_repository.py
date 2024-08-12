@@ -1,22 +1,21 @@
 from db.repository import *
-import mysql.connector
+import pymysql
 
 
 class MysqlRepository(Repository):
-
     def __init__(self):
         super().__init__()
         config = {
             'user': 'root',
             'password': 'AZpassword',
-            'host': 'localhost',  # db  OR to run LOCALLY, this should be localhost
-            'port': '3306',  # 3306 OR to run LOCALLY, this should be 32001
+            'host': 'localhost',
+            'port': 3306,
             'database': 'Journals'
         }
 
-        self.connection = mysql.connector.connect(**config)
+        self.connection = pymysql.connect(**config)
         self.cursor = self.connection.cursor()
-        
+
     def __del__(self):
         self.cursor.close()
         self.connection.close()
