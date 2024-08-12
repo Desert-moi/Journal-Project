@@ -1,4 +1,6 @@
 pytest
 beautifulsoup4
 #mysql-connector
-pymysql
+pymysql~=1.1.1
+Flask~=3.0.3
+flask-cors
