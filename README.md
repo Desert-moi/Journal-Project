@@ -15,8 +15,4 @@ User is able to enter a keyword that returns journal entries containing the keyw
 - _Input:_ User inputs several text data entry
 - _Output:_ Program returns keywords used from the text data entries
 
-The endpoint http://localhost:5000/get_data, expects a string matching an author in the body of the journal database.
-
-
-## Instructions to get project running
-
+#### See `API.md` for information on how to run app
