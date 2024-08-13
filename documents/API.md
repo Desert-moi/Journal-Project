@@ -5,6 +5,10 @@ This API allows you to retrieve journal entries based on the author's name. The 
 ## Running the API
 To run the API, execute the following command:
 
+Clone the repo
+
+run `pip install -r requirements.txt`
+
 `python app.py`
 
 ## Base URL
