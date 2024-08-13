@@ -7,13 +7,13 @@ from app.services import Services
 
 app = Flask(__name__)
 app.config['CORS_HEADERS'] = 'Content-Type'
-cors = CORS(app, resources={r"/get_data": {"origins": 'http://localhost:3000'}})
+cors = CORS(app, resources={r"/get_data": {"origins": 'http://localhost:5000'}})
 
 services = Services()
 
 
 @app.route("/get_data/<string:author>", methods=["GET"])
-@cross_origin(origin='http://localhost:3000', headers=['Content-Type', 'Authorization'])
+@cross_origin(origin='http://localhost:5000', headers=['Content-Type', 'Authorization'])
 def get_data(author):
 
     data = services.recall_author(author)
