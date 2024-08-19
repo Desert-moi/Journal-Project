@@ -7,7 +7,7 @@ from app.services import Services
 
 app = Flask(__name__)
 app.config['CORS_HEADERS'] = 'Content-Type'
-cors = CORS(app, resources={r"/get_data": {"origins": 'http://localhost:5000'}})
+cors = CORS(app, resources={r"/get_data": {"origins": 'http://localhost:port'}})
 
 services = Services()
 
@@ -28,4 +28,4 @@ def get_data(author):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0")

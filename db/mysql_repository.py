@@ -8,7 +8,7 @@ class MysqlRepository(Repository):
         config = {
             'user': 'root',
             'password': 'AZpassword',
-            'host': 'localhost',
+            'host': 'db',  # to run LOCALLY, this should be localhost
             'port': 3306,
             'database': 'Journals'
         }
