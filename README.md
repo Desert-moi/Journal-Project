@@ -15,4 +15,4 @@ User is able to enter a keyword that returns journal entries containing the keyw
 - _Input:_ User inputs several text data entry
 - _Output:_ Program returns keywords used from the text data entries
 
-#### See `API.md` for information on how to run app
+#### See `API.md` in `documents` folder for information on how to run app
