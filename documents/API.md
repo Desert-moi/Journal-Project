@@ -5,19 +5,22 @@ This API allows you to retrieve journal entries based on the author's name. The 
 ## Running the API
 To run the API, execute the following command:
 
-Clone the repo
+### Clone the repo
 
-run `pip install -r requirements.txt`
+1.  `git clone` https://github.com/Desert-moi/Journal-Project
+2. Build and start the docker container: `docker-compose up --build`
 
-`python app.py`
-
-## Base URL
+### Base URL
 The API is hosted at:
 http://localhost:5000
 
+### Interactions
+Use the drop down menu to select from the various authors in the database. You can also leave the drown down menu
+at the default selection and enter your own author to get an error. 
+
 ## Endpoints
 1. Get Journal Entries by Author
-- Endpoint: /get_data/<string:author>
+- Endpoint: /get_data/author
 - Method: GET
 - Description: Retrieves journal entries for the specified author.
 ### Request Parameters
@@ -25,7 +28,7 @@ http://localhost:5000
 
 ## Example Request
 
-`curl -X GET "http://localhost:5000/get_data/GabrielDoesgood"`
+`curl -X GET "http://localhost:5000/get_data/Gabriel%20Doesgood"`
 
 If the author exists, this would return:
 
