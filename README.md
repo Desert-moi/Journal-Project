@@ -1,5 +1,6 @@
 # Jounal Entry Retrieval 
-A program that looks at a database of journal entries and uses a key word to pull journal entries matching this keyword.
+A program that looks at a database of journal entries and uses the author's name to pull journal entries matching this
+keyword.
 Built for LING508 in the Univeristy of Arizona HLT program.
 
 ## What does this application do?
@@ -11,8 +12,8 @@ There is then an API that accesses that data and returns the requested informati
 An HTML file is used to navigate all authors or to input an author of one's choosing. 
 
 ## Use case #1
-User is able to enter a keyword that returns journal entries containing the keyword
+User is able to enter an author's name returns journal entries written by this author
 - _Input:_ User inputs several text data entry
-- _Output:_ Program returns keywords used from the text data entries
+- _Output:_ Program returns journal written by author
 
 #### See `API.md` in `documents` folder for information on how to run app
