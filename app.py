@@ -11,9 +11,11 @@ cors = CORS(app, resources={r"/get_data": {"origins": 'http://localhost:5000'}})
 
 services = Services()
 
+
 @app.route("/")
 def index():
     return send_from_directory('web', 'journal-retriever.html')
+
 
 @app.route("/get_data/<string:author>", methods=["GET"])
 @cross_origin(origin='http://localhost:5000', headers=['Content-Type', 'Authorization'])
