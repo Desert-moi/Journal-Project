@@ -1,16 +1,19 @@
 # Based on the LING508 Sanskrit example project, https://github.com/jjberry-508/sanskrit-508
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS, cross_origin
 from app.services import Services
 
 
 app = Flask(__name__)
 app.config['CORS_HEADERS'] = 'Content-Type'
-cors = CORS(app, resources={r"/get_data": {"origins": 'http://localhost:port'}})
+cors = CORS(app, resources={r"/get_data": {"origins": 'http://localhost:5000'}})
 
 services = Services()
 
+@app.route("/")
+def index():
+    return send_from_directory('web', 'journal-retriever.html')
 
 @app.route("/get_data/<string:author>", methods=["GET"])
 @cross_origin(origin='http://localhost:5000', headers=['Content-Type', 'Authorization'])
@@ -28,4 +31,4 @@ def get_data(author):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0", port=5000)
