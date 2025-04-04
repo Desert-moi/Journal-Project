@@ -12,7 +12,7 @@ class Services:
         """Calls the journal entries of target_author; should they exist in the database"""
 
         # Filter entries by the target author
-        filtered_entries = [entry for entry in self.journals if entry.get_author() == target_author]
+        filtered_entries = [entry for entry in self.journals if entry.get_author() == target_author.lower]
 
         # Print the filtered entries
         if filtered_entries:

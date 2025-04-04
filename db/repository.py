@@ -7,4 +7,3 @@ class Repository(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def load_journals(self) -> list[JournalEntry]:
         raise NotImplementedError
-
