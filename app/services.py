@@ -12,13 +12,12 @@ class Services:
         """Calls the journal entries of target_author; should they exist in the database"""
 
         # Filter entries by the target author
-        filtered_entries = [entry for entry in self.journals if entry.get_author() == target_author.lower]
+        filtered_entries = [entry for entry in self.journals if entry.get_author() == target_author]
 
         # Print the filtered entries
         if filtered_entries:
             return filtered_entries
-        else:
-            return ["No entries found for the given author."]
+
 
     #Use case 2: Recall journals based on keywords
 
