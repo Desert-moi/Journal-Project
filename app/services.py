@@ -17,6 +17,8 @@ class Services:
         # Print the filtered entries
         if filtered_entries:
             return filtered_entries
+        else:
+            return ["No entries found for the given author."]
 
     #Use case 2: Recall journals based on keywords
 
